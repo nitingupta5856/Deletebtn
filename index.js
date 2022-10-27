@@ -7,6 +7,7 @@ var itemList = document.getElementById('items');
  e.preventDefault();
  // get input value
  var newitem = document.getElementById('item').value;
+ var des = document.getElementById('description').value;
  // create new li
  var li=document.createElement('li');
  // add class
@@ -14,6 +15,7 @@ var itemList = document.getElementById('items');
  console.log(li);
  // add textnode with input value
  li.appendChild(document.createTextNode(newitem));
+ li.appendChild(document.createTextNode(des));
  console.log(li);
  // create edit btn
  var editbtn=document.createElement('button');
@@ -48,4 +50,26 @@ var itemList = document.getElementById('items');
     
 
     }
+ }
+
+ var filter =document.getElementById('filter');
+ filter.addEventListener('keyup',filterItems);
+ // filter item
+ function filterItems(e){
+    // convert text to lowercase
+    var text = e.target.value.toLowerCase();
+    console.log(text);
+    // get lis
+    var items = itemList.getElementsByTagName('li');
+    // converts to an array
+    Array.from(items).forEach(function(item){
+   var itemName = item.firstChild.textContent;
+   var desc = item.childNodes[1].textContent;
+   if(itemName.toLowerCase().indexOf(text)!=-1 || desc.toLowerCase().indexOf(text)!=-1){
+    item.style.display='block';
+   }
+   else{
+    item.style.display='none';
+   }
+    })
  }
