@@ -89,40 +89,58 @@ var itemList = document.getElementById('items');
 
 
 // call function
-var obj ={num:2};
- var addToThis= function (a, b){
-    return this.num +a+b;
-};
+// var obj ={num:2};
+//  var addToThis= function (a, b){
+//     return this.num +a+b;
+// };
 
-console.log(addToThis.call(obj, 3, 2));
+// console.log(addToThis.call(obj, 3, 2));
 
 // Apply function
-var obj ={num:2};
- var addToThis= function (a, b){
-    return this.num +a+b;
-};
-var arr = [1,2]
-console.log(addToThis.apply(obj, arr));
+// var obj ={num:2};
+//  var addToThis= function (a, b){
+//     return this.num +a+b;
+// };
+// var arr = [1,2]
+// console.log(addToThis.apply(obj, arr));
 
 // bind function
-var obj ={num:2};
+// var obj ={num:2};
 
- var addToThis= function (a, b){
-    return this.num +a+b;
-};
-var arr = [1,2]
-var bound = addToThis.bind(obj)
-console.log(bound(1,2));
+//  var addToThis= function (a, b){
+//     return this.num +a+b;
+// };
+// var arr = [1,2]
+// var bound = addToThis.bind(obj)
+// console.log(bound(1,2));
 
 // printAge
-var student = {age:20};
-function printAge(){
-   return this.age;
-}
-var bound= printAge.bind(student);
-console.log(bound(this.age));
+// var student = {age:20};
+// function printAge(){
+//    return this.age;
+// }
+// var bound= printAge.bind(student);
+// console.log(bound(this.age));
 
 
+// function curring
+    // by bind mehod
+    let multiply = function (x,y){
+      console.log(x*y);
+    };
+   let  multiplyByTwo = multiply.bind (this,3);
+   multiplyByTwo(2);
+   let  multiplyByThree = multiply.bind (this,3);
+   multiplyByThree(5);
+
+     // by closer mehod
+     let multiply2 =function(x){
+      return function(y){
+         console.log(x*y);
+      }
+     };
+     let  multiplyByTwo2 = multiply2 (3);
+     multiplyByTwo2(2);
 
  
  
