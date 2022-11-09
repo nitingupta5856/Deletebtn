@@ -73,3 +73,56 @@ var itemList = document.getElementById('items');
    }
     })
  }
+
+
+// const obj ={
+//    "name1":"nitin",
+//    "name2":"rohan",
+//    "name3":"rinku"
+// }
+
+// // console.log(Object.keys(obj));
+// var objArr =Object.keys(obj);
+// objArr.forEach(value => {
+//    console.log(obj[value])
+// });
+
+
+// call function
+var obj ={num:2};
+ var addToThis= function (a, b){
+    return this.num +a+b;
+};
+
+console.log(addToThis.call(obj, 3, 2));
+
+// Apply function
+var obj ={num:2};
+ var addToThis= function (a, b){
+    return this.num +a+b;
+};
+var arr = [1,2]
+console.log(addToThis.apply(obj, arr));
+
+// bind function
+var obj ={num:2};
+
+ var addToThis= function (a, b){
+    return this.num +a+b;
+};
+var arr = [1,2]
+var bound = addToThis.bind(obj)
+console.log(bound(1,2));
+
+// printAge
+var student = {age:20};
+function printAge(){
+   return this.age;
+}
+var bound= printAge.bind(student);
+console.log(bound(this.age));
+
+
+
+ 
+ 
